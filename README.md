@@ -27,3 +27,7 @@ npm run dev
 ```sh
 npm run build
 ```
+
+# https://manonfireeverytime.github.io/cw3Individual/
+
+# https://github.com/ManOnFireEverytime/cw3Individual/
