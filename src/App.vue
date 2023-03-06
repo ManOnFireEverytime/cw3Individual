@@ -22,7 +22,7 @@
               <option value="subject">Subject</option>
               <option value="price">Price</option>
               <option value="location">Location</option>
-              <!-- <option value="space">Spaces</option> -->
+              <option value="space">Spaces</option>
             </select>
             <button
               v-on:click="ascending = !ascending"
