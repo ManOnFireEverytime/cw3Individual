@@ -16,7 +16,7 @@
             <select
               class="sort btn btn-default"
               name="sortBy"
-              
+              id="select"
               v-model="sortBy"
             >
               <option value="subject">Subject</option>
