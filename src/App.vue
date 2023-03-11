@@ -83,9 +83,6 @@ export default {
   },
 
   created: function () {
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js");
-    }
     fetch(
       "https://webstoreapp-env.eba-yi2fch33.eu-west-2.elasticbeanstalk.com/collections/lessons"
     )

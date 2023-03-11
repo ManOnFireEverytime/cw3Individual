@@ -42,7 +42,7 @@
 
             <div class="row">
               <div class="col-md-12 order-md-1">
-                <form class="needs-validation" v-on:submit.prevent="checkout">
+                <form class="needs-validation">
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <input
@@ -116,55 +116,6 @@ export default {
     // removes a lesson from cart
     removeFromCart(lessonId) {
         this.$emit("remove-item-from-cart", lessonId)
-    },
-    createNewOrder(order) {
-      fetch(
-        "https://webstoreapp-env.eba-yi2fch33.eu-west-2.elasticbeanstalk.com/collections/orders",
-        {
-          method: "POST", //set the HTTP method as "POST"
-          headers: {
-            "Content-Type": "application/json", //set the data type as JSON
-          },
-          body: JSON.stringify(order), //need to stringigy the JSON
-        }
-      ).then(function (response) {
-        response.json().then(function (json) {
-          // alert("Success: " + json.acknowledged);
-          console.log("Success: " + json.acknowledged);
-          // webstore.lessons.push(order);
-        });
-      });
-    },
-    async updateLesson({ lesson_id, space }) {
-      try {
-        const url = `https://webstoreapp-env.eba-yi2fch33.eu-west-2.elasticbeanstalk.com/collections/lessons/${lesson_id}`;
-
-        fetch(url, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            space: space,
-          }),
-        });
-      } catch (error) {
-        this.error = error;
-      }
-    },
-    checkout() {
-      this.cart.forEach(async (item) => {
-        this.createNewOrder({
-          name: this.name,
-          phone: this.phone,
-          id: item.lessonId,
-          space: item.space,
-        });
-
-        this.updateLesson({
-          // lessonId: item.lessonId,
-          space: item.space,
-          lesson_id: item.lesson._id,
-        });
-      });
     },
     submitForm() {
       alert("Your order has been Submitted");
